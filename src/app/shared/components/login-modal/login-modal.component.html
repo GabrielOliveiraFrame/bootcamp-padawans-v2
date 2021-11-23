@@ -1,0 +1,38 @@
+<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#loginModal">
+  Login
+</button>
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form [formGroup] = "formulario" >
+          <div class="form-group">
+            <div class="mb-4">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+              placeholder="Insira seu Email..." autocomplete="off" formControlName="email">
+            </div>
+
+            <div>
+              <label for="password">Senha</label>
+              <input type="password" class="form-control" id="password"
+              placeholder="Sua Senha..." autocomplete="off" formControlName="password">
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-success">Entrar</button>
+      </div>
+    </div>
+  </div>

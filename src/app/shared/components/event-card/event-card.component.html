@@ -1,0 +1,9 @@
+<div *ngFor="let event of events | async " class="card border-dark mb-3" >
+  <div class="card-header">{{event.title}}</div>
+  <div class="card-body text-dark">
+    <p class="card-text">Dia: {{event.start}}</p>
+    <p class="card-text">Hora: {{event.hour}}</p>
+    <p class="card-text">Tipo de Doação: {{event.donations}}</p>
+    <p class="card-text">Contato: {{event.phone}}</p>
+  </div>
+</div>

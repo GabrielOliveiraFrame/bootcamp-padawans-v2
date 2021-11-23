@@ -1,0 +1,17 @@
+.container-fluid
+{
+  height: 90vh;
+  background-color: #E8E8E8;
+  overflow-y: scroll;
+}
+
+.container-fluid::-webkit-scrollbar{
+  width: 10px;
+  border-radius: 10px;
+  background-color: #c4c4c4cc;
+}
+
+.container-fluid::-webkit-scrollbar-thumb{
+  background-color: #77866d;
+  border-radius: 10px;
+}

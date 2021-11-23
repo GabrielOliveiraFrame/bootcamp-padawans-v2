@@ -1,0 +1,19 @@
+.img-box{
+  width: 70%;
+}
+
+img{
+  width: 100%;
+}
+
+.options
+{
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.options button{
+  width: 45%;
+}

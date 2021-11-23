@@ -9,7 +9,7 @@ import { PublicRoutingModule } from './public-routing.module';
   ],
   imports: [
     CommonModule,
-    PublicRoutingModule
+    PublicRoutingModule,
   ]
 })
 export class PublicModule { }

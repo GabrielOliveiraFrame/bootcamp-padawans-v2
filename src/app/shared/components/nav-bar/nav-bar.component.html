@@ -1,0 +1,9 @@
+<nav class="navbar navbar-light px-4" style="background-color: #97BF7A;">
+  <div>
+    <i class="fas fa-globe-americas mr-2"></i>
+    <span class="navbar-brand mb-0 h1">Ongarniza</span>
+  </div>
+
+  <app-not-log *ngIf="!log"></app-not-log>
+  <app-logged *ngIf="log"></app-logged>
+</nav>
