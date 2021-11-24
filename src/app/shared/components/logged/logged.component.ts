@@ -7,11 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoggedComponent implements OnInit {
 
-  ongName: string = 'OngBrasil';
+  ongName!: any;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.ongName = window.localStorage.getItem('userName');
+  }
+
+  closeLog(){
+    window.localStorage.removeItem('userName');
+    window.location.reload();
   }
 
 }

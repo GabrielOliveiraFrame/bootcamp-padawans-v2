@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -10,16 +10,44 @@ export class LoginModalComponent implements OnInit {
 
   formulario!: FormGroup;
 
+  userName!: string;
+
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
 
     this.formulario = this.formBuilder.group({
-      email: [null, [Validators.required, Validators.email]],
+      user: [null, [Validators.required]],
       password: [null, [Validators.required]]
     });
+
   }
 
+  onSubmit(){
+    this.checkValidations();
 
+    if(!this.formulario.valid){
+      return
+    } else{
+      this.userName = this.formulario.get('user')?.value;
+      this.resetaForm();
+      window.localStorage.setItem('userName', this.userName);
+      window.location.reload();
+    }
+  }
+
+  checkValidations(){
+    Object.keys(this.formulario.controls).forEach(c => {
+      const controle = this.formulario.get(c);
+
+      console.log(controle);
+
+      controle?.markAsDirty();
+    })
+  }
+
+  resetaForm(){
+    this.formulario.reset();
+  }
 
 }

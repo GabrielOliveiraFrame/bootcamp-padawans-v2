@@ -4,6 +4,6 @@
     <span class="navbar-brand mb-0 h1">Ongarniza</span>
   </div>
 
-  <app-not-log *ngIf="!log"></app-not-log>
-  <app-logged *ngIf="log"></app-logged>
+  <app-not-log *ngIf="userName == null"></app-not-log>
+  <app-logged *ngIf="userName != null"></app-logged>
 </nav>
