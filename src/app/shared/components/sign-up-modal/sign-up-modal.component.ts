@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormValidations } from '../../validations/formValidations';
 
 @Component({
   selector: 'app-sign-up-modal',
@@ -7,9 +9,51 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpModalComponent implements OnInit {
 
-  constructor() { }
+  formulario!: FormGroup;
+
+  @ViewChild('closeBtn') closeBtn!: ElementRef;
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+
+    this.formulario = this.formBuilder.group({
+      name: [null, [Validators.required]],
+      cnpj: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.email]],
+      phone: [null, [Validators.required]],
+      password: [null, [Validators.required]],
+      confirmPassword: [null, [FormValidations.equalsTo('eamil')]]
+    });
+
+  }
+
+  onSubmit(){
+    this.checkValidations();
+
+    if(!this.formulario.valid){
+      return
+    } else{
+      this.resetaForm();
+      this.closeModal();
+
+    }
+  }
+
+  checkValidations(){
+    Object.keys(this.formulario.controls).forEach(c => {
+      const controle = this.formulario.get(c);
+
+      controle?.markAsDirty();
+    })
+  }
+
+  resetaForm(){
+    this.formulario.reset();
+  }
+
+  closeModal(){
+    this.closeBtn.nativeElement.click();
   }
 
 }

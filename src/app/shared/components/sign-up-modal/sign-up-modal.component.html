@@ -1,22 +1,78 @@
-<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#singUpModal">
-  Cadastro Ongs
+<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#signModal">
+  Cadastro ONG'S
 </button>
 
-<div class="modal fade" id="singUpModal" tabindex="-1" aria-labelledby="singUpModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<div class="modal fade" id="signModal" tabindex="-1" aria-labelledby="signModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="singUpModalLabel">Cadastro</h5>
+        <h5 class="modal-title" id="signModalLabel">Cadastro</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-       <form></form>
+
+        <form [formGroup] = "formulario" (ngSubmit) = "onSubmit()">
+          <div class="form-group">
+            <div class="mb-4">
+              <label for="name">*Usuário</label>
+              <input type="text" class="form-control" id="name" placeholder="Insira o nome da ONG..."
+              autocomplete="off" formControlName="name">
+
+              <app-error-msg label="Nome da ONG" [control]="formulario.get('name')"></app-error-msg>
+            </div>
+
+            <div class="mb-4">
+              <label for="cnpj">*Cnpj</label>
+              <input type="text" class="form-control" id="cnpj"
+              placeholder="Cnpj da instituição..." autocomplete="off" formControlName="cnpj">
+
+              <app-error-msg label="Cnpj" [control]="formulario.get('cnpj')"></app-error-msg>
+            </div>
+
+            <div class="mb-4">
+              <label for="email">*Email</label>
+              <input type="text" class="form-control" id="email"
+              placeholder="Email da instituição..." autocomplete="off" formControlName="email">
+
+              <app-error-msg label="Email" [control]="formulario.get('email')"></app-error-msg>
+            </div>
+
+            <div class="mb-4">
+              <label for="phone">*Telefone</label>
+              <input type="text" class="form-control" id="phone"
+              placeholder="Insira um telefone..." autocomplete="off" formControlName="phone">
+
+              <app-error-msg label="Telefone" [control]="formulario.get('phone')"></app-error-msg>
+            </div>
+
+            <div class="mb-4">
+              <label for="passwordSign">*Senha</label>
+              <input type="password" class="form-control" id="passwordSign"
+              placeholder="Insira uma senha..." autocomplete="off" formControlName="password">
+
+              <app-error-msg label="Senha" [control]="formulario.get('password')"></app-error-msg>
+            </div>
+
+            <div>
+              <label for="passwordConfirm">*Confirme a Senha</label>
+              <input type="password" class="form-control" id="passwordConfirm"
+              placeholder="Confirme sua Senha..." autocomplete="off" formControlName="confirmPassword">
+
+              <app-error-msg label="Confirmar Senha"
+              [control]="formulario.get('confirmPassword')"></app-error-msg>
+            </div>
+
+          </div>
+
+          <div class="w-100 d-flex justify-content-end mt-4">
+            <button type="button" class="btn btn-danger mr-3" data-dismiss="modal" #closeBtn>Fechar</button>
+            <button type="submit" class="btn btn-success">Entrar</button>
+          </div>
+        </form>
+
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-success">Concluir</button>
-      </div>
+
     </div>
   </div>
