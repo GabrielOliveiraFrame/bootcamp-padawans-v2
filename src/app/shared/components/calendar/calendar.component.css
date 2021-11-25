@@ -12,8 +12,9 @@ img{
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .options button{
-  width: 45%;
+  width: 280px;
 }

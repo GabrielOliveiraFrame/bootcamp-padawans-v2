@@ -11,6 +11,9 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
 import { SignUpModalComponent } from './sign-up-modal/sign-up-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorMsgComponent } from './error-msg/error-msg.component';
+import { RedirectCreateEventComponent } from './redirect-create-event/redirect-create-event.component';
+import { RequestLogModalComponent } from './request-log-modal/request-log-modal.component';
+import { CreateEventModalComponent } from './create-event-modal/create-event-modal.component';
 @NgModule({
   declarations: [
     NavBarComponent,
@@ -22,7 +25,10 @@ import { ErrorMsgComponent } from './error-msg/error-msg.component';
     CalendarComponent,
     LoginModalComponent,
     SignUpModalComponent,
-    ErrorMsgComponent
+    ErrorMsgComponent,
+    RedirectCreateEventComponent,
+    RequestLogModalComponent,
+    CreateEventModalComponent
   ],
   imports: [
     CommonModule,
