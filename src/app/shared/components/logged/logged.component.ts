@@ -16,8 +16,10 @@ export class LoggedComponent implements OnInit {
   }
 
   closeLog(){
-    window.localStorage.removeItem('userName');
-    window.location.reload();
+    localStorage.removeItem('userName');
+
+    //para atualizar o componente mostrado
+    location.reload();
   }
 
 }

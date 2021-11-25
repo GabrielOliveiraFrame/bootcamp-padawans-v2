@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -11,6 +11,8 @@ export class LoginModalComponent implements OnInit {
   formulario!: FormGroup;
 
   userName!: string;
+
+  @ViewChild('closeBtn') closeBtn!: ElementRef;
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -30,9 +32,13 @@ export class LoginModalComponent implements OnInit {
       return
     } else{
       this.userName = this.formulario.get('user')?.value;
+      localStorage.setItem('userName', this.userName);
+
       this.resetaForm();
-      window.localStorage.setItem('userName', this.userName);
-      window.location.reload();
+      this.closeModal();
+
+      //para atualizar o componente mostrado
+      location.reload();
     }
   }
 
@@ -40,14 +46,16 @@ export class LoginModalComponent implements OnInit {
     Object.keys(this.formulario.controls).forEach(c => {
       const controle = this.formulario.get(c);
 
-      console.log(controle);
-
       controle?.markAsDirty();
     })
   }
 
   resetaForm(){
     this.formulario.reset();
+  }
+
+  closeModal(){
+    this.closeBtn.nativeElement.click();
   }
 
 }

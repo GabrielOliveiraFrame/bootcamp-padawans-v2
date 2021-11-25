@@ -1,0 +1,19 @@
+.card{
+  position: relative;
+}
+
+i{
+  font-size: 30px;
+  position: absolute;
+  cursor: pointer;
+}
+
+i.down{
+  right: 40px;
+  bottom: 23px;
+}
+
+i.up{
+  right: 40px;
+  bottom: 8px;
+}

@@ -9,12 +9,21 @@ import { EventsService } from '../../services/events.service';
 })
 export class EventCardComponent implements OnInit {
 
+  cardId!: any;
   events!: Observable<any>;
 
   constructor(private eventsService: EventsService) { }
 
   ngOnInit(): void {
     this.events = this.eventsService.getAll();
+  }
+
+  openSelectedCard(id: number){
+    this.cardId = id;
+  }
+
+  closeSelectedCard(){
+    this.cardId = null;
   }
 
 }

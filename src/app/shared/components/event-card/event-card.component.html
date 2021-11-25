@@ -1,9 +1,22 @@
-<div *ngFor="let event of events | async " class="card border-dark mb-3" >
-  <div class="card-header">{{event.title}}</div>
-  <div class="card-body text-dark">
-    <p class="card-text">Dia: {{event.start}}</p>
-    <p class="card-text">Hora: {{event.hour}}</p>
-    <p class="card-text">Tipo de Doação: {{event.donations}}</p>
-    <p class="card-text">Contato: {{event.phone}}</p>
-  </div>
+<div *ngFor="let event of events | async ; let i = index " class="card border-dark mb-3" >
+  <div class="card-header">{{i+1}}.{{event.title}}</div>
+    <div class="card-body text-dark">
+      <p class="card-text">Dia: {{event.start}}</p>
+      <p class="card-text">Hora: {{event.hour}}</p>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div [class.collapse]="cardId!==i" id="event-{{i}}" >
+          <div class="card-body pt-0" >
+            <p class="card-text">Tipo de Doação: {{event.donations}}</p>
+            <p class="card-text">Contato: {{event.phone}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <i *ngIf="cardId != i" class="fas fa-sort-down down" (click)="cardId = i"></i>
+
+    <i *ngIf="cardId == i " class="fas fa-sort-up up" (click)="cardId = null"></i>
 </div>
