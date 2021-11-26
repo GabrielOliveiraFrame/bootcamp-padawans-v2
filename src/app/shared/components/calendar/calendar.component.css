@@ -1,5 +1,13 @@
+section{
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .img-box{
-  width: 70%;
+  width: 60%;
+  min-width: 400px;
 }
 
 img{
@@ -8,13 +16,26 @@ img{
 
 .options
 {
-  width: 70%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  width: 80%;
 }
 
-.options button{
-  min-width: 280px;
+.btnW{
+  width: 100%;
+}
+
+@media(max-width: 767px){
+  section{
+    height: auto;
+    overflow: auto;
+  }
+
+  .img-box{
+    width: 90%;
+    min-width: 0;
+  }
+
+  .options{
+    width: 90%;
+  }
+
 }
