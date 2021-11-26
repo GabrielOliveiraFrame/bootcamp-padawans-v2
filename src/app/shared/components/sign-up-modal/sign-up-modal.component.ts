@@ -22,6 +22,7 @@ export class SignUpModalComponent implements OnInit {
       cnpj: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]],
       phone: [null, [Validators.required]],
+      description: [null, [Validators.required]],
       password: [null, [Validators.required]],
       confirmPassword: [null, [FormValidations.equalsTo('eamil')]]
     });

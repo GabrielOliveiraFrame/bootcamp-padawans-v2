@@ -21,6 +21,9 @@ export class CreateEventModalComponent implements OnInit {
     this.formulario = this.formBuilder.group({
       name: [null, [Validators.required]],
       local: [null, [Validators.required]],
+      start: [null, [Validators.required]],
+      hour: [null, [Validators.required]],
+      donations: [null, [Validators.required]],
     });
 
   }
@@ -29,7 +32,7 @@ export class CreateEventModalComponent implements OnInit {
     this.checkValidations();
 
     if(!this.formulario.valid){
-      return
+      return;
     } else{
       this.resetaForm();
       this.closeModal();

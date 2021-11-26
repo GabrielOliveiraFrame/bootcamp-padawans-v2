@@ -48,6 +48,15 @@
             </div>
 
             <div class="mb-4">
+              <label for="description">*Descrição</label>
+              <textarea name="description" class="form-control" id="description"
+              placeholder="Conte-nos um pouco sobre sua ONG..." autocomplete="off"
+              formControlName="description"></textarea>
+
+              <app-error-msg label="Descrição" [control]="formulario.get('description')"></app-error-msg>
+            </div>
+
+            <div class="mb-4">
               <label for="passwordSign">*Senha</label>
               <input type="password" class="form-control" id="passwordSign"
               placeholder="Insira uma senha..." autocomplete="off" formControlName="password">
@@ -55,7 +64,7 @@
               <app-error-msg label="Senha" [control]="formulario.get('password')"></app-error-msg>
             </div>
 
-            <div>
+            <div class="mb-4">
               <label for="passwordConfirm">*Confirme a Senha</label>
               <input type="password" class="form-control" id="passwordConfirm"
               placeholder="Confirme sua Senha..." autocomplete="off" formControlName="confirmPassword">

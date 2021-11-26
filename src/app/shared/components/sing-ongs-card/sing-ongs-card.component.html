@@ -1,0 +1,7 @@
+<div *ngFor="let ong of ongsList | async" class="card mt-5 mr-4" style="width: 18rem;">
+  <img src={{ong.image}} class="card-img-top mt-3 mx-auto" alt="Imagem da Ong">
+  <div class="card-body text-center">
+    <h4 class="card-title">{{ong.name}}</h4>
+    <p class="card-text">{{ong.description}}</p>
+  </div>
+</div>

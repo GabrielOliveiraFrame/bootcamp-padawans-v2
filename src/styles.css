@@ -5,3 +5,15 @@
 *{
   font-family: 'Antonio', sans-serif;
 }
+
+body::-webkit-scrollbar{
+  width: 10px;
+  border-radius: 10px;
+  background-color: #c4c4c4cc;
+}
+
+body::-webkit-scrollbar-thumb{
+  background-color: #77866d;
+  border-radius: 10px;
+}
+

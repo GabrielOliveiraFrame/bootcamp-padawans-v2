@@ -1,10 +1,10 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { EventsListComponent } from './events-list/events-list.component';
 import { NotLogComponent } from './not-log/not-log.component';
 import { LoggedComponent } from './logged/logged.component';
-import { ContainerComponent } from './container/container.component';
 import { EventCardComponent } from './event-card/event-card.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
@@ -14,13 +14,16 @@ import { ErrorMsgComponent } from './error-msg/error-msg.component';
 import { RedirectCreateEventComponent } from './redirect-create-event/redirect-create-event.component';
 import { RequestLogModalComponent } from './request-log-modal/request-log-modal.component';
 import { CreateEventModalComponent } from './create-event-modal/create-event-modal.component';
+import { DashboardContainerComponent } from './dashboard-container/dashboard-container.component';
+import { SignOngsContainerComponent } from './sign-ongs-container/sign-ongs-container.component';
+import { SingOngsCardComponent } from './sing-ongs-card/sing-ongs-card.component';
 @NgModule({
   declarations: [
     NavBarComponent,
     EventsListComponent,
     NotLogComponent,
     LoggedComponent,
-    ContainerComponent,
+    DashboardContainerComponent,
     EventCardComponent,
     CalendarComponent,
     LoginModalComponent,
@@ -28,15 +31,18 @@ import { CreateEventModalComponent } from './create-event-modal/create-event-mod
     ErrorMsgComponent,
     RedirectCreateEventComponent,
     RequestLogModalComponent,
-    CreateEventModalComponent
+    CreateEventModalComponent,
+    SignOngsContainerComponent,
+    SingOngsCardComponent
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   exports: [
     NavBarComponent,
-    ContainerComponent,
+    DashboardContainerComponent,
   ]
 })
 export class SharedComponentsModule { }

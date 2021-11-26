@@ -33,6 +33,30 @@ aria-labelledby="createEventModalLabel" aria-hidden="true">
               <app-error-msg label="Local do evento" [control]="formulario.get('local')"></app-error-msg>
             </div>
 
+            <div class="mb-4">
+              <label for="start">*Dia</label>
+              <input type="date" class="form-control" id="start"
+              autocomplete="off" formControlName="start">
+
+              <app-error-msg label="Data" [control]="formulario.get('start')"></app-error-msg>
+            </div>
+
+            <div class="mb-4">
+              <label for="hour">*Hora</label>
+              <input type="text" class="form-control" id="hour" placeholder="Informe a hora de realização..."
+              autocomplete="off" formControlName="hour">
+
+              <app-error-msg label="Hora" [control]="formulario.get('hour')"></app-error-msg>
+            </div>
+
+            <div class="mb-4">
+              <label for="donations">*Doações</label>
+              <input type="text" class="form-control" id="donations"
+              placeholder="Diga o que será oferecido no evento..." autocomplete="off" formControlName="donations">
+
+              <app-error-msg label="Doações" [control]="formulario.get('donations')"></app-error-msg>
+            </div>
+
           </div>
 
           <div class="w-100 d-flex justify-content-end mt-4">
