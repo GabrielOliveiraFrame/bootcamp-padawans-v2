@@ -24,7 +24,7 @@ export class SignUpModalComponent implements OnInit {
       phone: [null, [Validators.required]],
       description: [null, [Validators.required]],
       password: [null, [Validators.required]],
-      confirmPassword: [null, [FormValidations.equalsTo('eamil')]]
+      confirmPassword: [null, [FormValidations.equalsTo('password')]]
     });
 
   }
