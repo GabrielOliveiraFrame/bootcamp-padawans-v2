@@ -14,16 +14,15 @@ import { ErrorMsgComponent } from './error-msg/error-msg.component';
 import { RedirectCreateEventComponent } from './redirect-create-event/redirect-create-event.component';
 import { RequestLogModalComponent } from './request-log-modal/request-log-modal.component';
 import { CreateEventModalComponent } from './create-event-modal/create-event-modal.component';
-import { DashboardContainerComponent } from './dashboard-container/dashboard-container.component';
-import { SignOngsContainerComponent } from './sign-ongs-container/sign-ongs-container.component';
 import { SingOngsCardComponent } from './sing-ongs-card/sing-ongs-card.component';
+import { PipesModule } from '../pipes/pipes.module';
+
 @NgModule({
   declarations: [
     NavBarComponent,
     EventsListComponent,
     NotLogComponent,
     LoggedComponent,
-    DashboardContainerComponent,
     EventCardComponent,
     CalendarComponent,
     LoginModalComponent,
@@ -32,17 +31,19 @@ import { SingOngsCardComponent } from './sing-ongs-card/sing-ongs-card.component
     RedirectCreateEventComponent,
     RequestLogModalComponent,
     CreateEventModalComponent,
-    SignOngsContainerComponent,
     SingOngsCardComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    PipesModule
   ],
   exports: [
     NavBarComponent,
-    DashboardContainerComponent,
+    CalendarComponent,
+    EventsListComponent,
+    SingOngsCardComponent
   ]
 })
 export class SharedComponentsModule { }

@@ -21,7 +21,18 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./types"
+    ],
+    "paths": {
+      "@environments/*": ["environments/*"],
+      "@shared/components/*": ["src/app/shared/components/*"],
+      "@shared/pipes/*": ["src/app/shared/pipes/*"],
+      "@shared/directives/*": ["src/app/shared/directives/*"],
+      "@shared/services/*": ["src/app/shared/services/*"]
+    },
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

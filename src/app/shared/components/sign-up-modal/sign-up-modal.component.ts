@@ -37,7 +37,7 @@ export class SignUpModalComponent implements OnInit {
     } else{
       this.resetaForm();
       this.closeModal();
-
+      //class...
     }
   }
 
