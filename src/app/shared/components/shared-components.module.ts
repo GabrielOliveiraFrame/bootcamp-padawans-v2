@@ -1,3 +1,4 @@
+import { DirectivesModule } from './../directives/directives.module';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -37,7 +38,8 @@ import { PipesModule } from '../pipes/pipes.module';
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
-    PipesModule
+    PipesModule,
+    DirectivesModule
   ],
   exports: [
     NavBarComponent,

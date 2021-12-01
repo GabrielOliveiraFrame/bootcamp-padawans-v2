@@ -21,7 +21,8 @@ export class FormValidations
       'required': `${fieldName} é obrigatório.`,
       'email': 'Insira um email válido.',
       'pattern': `Insira um ${fieldName} válido.`,
-      'equalsTo': 'As senhas precisam ser iguais.'
+      'equalsTo': 'As senhas precisam ser iguais.',
+      'invalid': `Digite um(a) ${fieldName} válido.`
     };
 
     return config[validatorName];

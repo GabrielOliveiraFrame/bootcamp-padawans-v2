@@ -41,7 +41,7 @@
 
             <div class="mb-4">
               <label for="phone">*Telefone</label>
-              <input type="text" class="form-control" id="phone"
+              <input type="text" class="form-control" id="phone" phone [control]="formulario.get('phone')"
               placeholder="Insira um telefone..." autocomplete="off" formControlName="phone">
 
               <app-error-msg label="Telefone" [control]="formulario.get('phone')"></app-error-msg>

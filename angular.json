@@ -29,11 +29,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
-            "allowedCommonJsDependencies": [
-              "string-mask",
-              "jquery"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {

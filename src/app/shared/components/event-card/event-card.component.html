@@ -2,7 +2,7 @@
   <div class="card-header">{{i+1}}.{{event.title}}</div>
     <div class="card-body text-dark">
       <p class="card-text">Dia: {{event.start | date:"dd/MM/yy"}}</p>
-      <p class="card-text">Hora: {{event.hour}}</p>
+      <p class="card-text">Hora: {{event.hour | hour}}</p>
     </div>
 
     <div class="row">
