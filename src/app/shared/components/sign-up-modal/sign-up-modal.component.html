@@ -25,7 +25,7 @@
 
             <div class="mb-4">
               <label for="cnpj">*Cnpj</label>
-              <input type="text" class="form-control" id="cnpj"
+              <input type="text" class="form-control" id="cnpj" cnpjMask [control]="formulario.get('cnpj')"
               placeholder="Cnpj da instituição..." autocomplete="off" formControlName="cnpj">
 
               <app-error-msg label="Cnpj" [control]="formulario.get('cnpj')"></app-error-msg>
@@ -41,7 +41,7 @@
 
             <div class="mb-4">
               <label for="phone">*Telefone</label>
-              <input type="text" class="form-control" id="phone" phone [control]="formulario.get('phone')"
+              <input type="text" class="form-control" id="phone" phoneMask [control]="formulario.get('phone')"
               placeholder="Insira um telefone..." autocomplete="off" formControlName="phone">
 
               <app-error-msg label="Telefone" [control]="formulario.get('phone')"></app-error-msg>

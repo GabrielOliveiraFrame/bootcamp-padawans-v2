@@ -1,12 +1,12 @@
-import { AbstractControl} from '@angular/forms';
 import { Directive, HostListener, Input } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 import { StringMaskService } from '../../services/string-mask.service';
 import { Masks } from '../../validations/masks';
 
 @Directive({
-  selector: '[phoneMask]'
+  selector: '[hourMask]'
 })
-export class PhoneDirective{
+export class HourDirective {
 
   delete: boolean = false;
 
@@ -34,9 +34,9 @@ export class PhoneDirective{
 
     if(!this.delete){
 
-      let result = this.stringMaskService.stringTransform(value, Masks.phoneMask);
+      let result = this.stringMaskService.stringTransform(value, Masks.hourMask);
       this.control?.setValue(result);
     }
   }
-}
 
+}

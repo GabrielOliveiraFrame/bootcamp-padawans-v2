@@ -1,5 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormValidations } from '../../validations/formValidations';
+import { Masks } from '../../validations/masks';
 
 @Component({
   selector: 'app-create-event-modal',
@@ -22,7 +24,7 @@ export class CreateEventModalComponent implements OnInit {
       name: [null, [Validators.required]],
       local: [null, [Validators.required]],
       start: [null, [Validators.required]],
-      hour: [null, [Validators.required]],
+      hour: [null, [Validators.required, FormValidations.maskValidate(Masks.hourMask)]],
       donations: [null, [Validators.required]],
     });
 

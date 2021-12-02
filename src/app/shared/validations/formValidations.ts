@@ -1,4 +1,4 @@
-import { FormControl } from "@angular/forms";
+import {FormControl } from "@angular/forms";
 
 export class FormValidations
 {
@@ -16,13 +16,29 @@ export class FormValidations
     return validator;
   }
 
+  static maskValidate(formatter: any){
+    const validator = (formControl: FormControl) => {
+
+      if(formControl?.value){
+        let onlyNumbers = formControl?.value.replace(/[^0-9]/g, '');
+        let isValid = formatter.validate(onlyNumbers);
+
+        return isValid ? null : {'invalidMask': true};
+      }
+
+      return null
+    }
+
+    return validator;
+  }
+
   static getErrorMsg(fieldName: string, validatorName: string){
     const config: any = {
       'required': `${fieldName} é obrigatório.`,
       'email': 'Insira um email válido.',
       'pattern': `Insira um ${fieldName} válido.`,
       'equalsTo': 'As senhas precisam ser iguais.',
-      'invalid': `Digite um(a) ${fieldName} válido.`
+      'invalidMask': `Digite um(a) ${fieldName} válido(a).`
     };
 
     return config[validatorName];

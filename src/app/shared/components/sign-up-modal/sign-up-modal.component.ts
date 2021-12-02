@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormValidations } from '../../validations/formValidations';
+import { Masks } from '../../validations/masks';
 
 @Component({
   selector: 'app-sign-up-modal',
@@ -19,9 +20,9 @@ export class SignUpModalComponent implements OnInit {
 
     this.formulario = this.formBuilder.group({
       name: [null, [Validators.required]],
-      cnpj: [null, [Validators.required]],
+      cnpj: [null, [Validators.required, FormValidations.maskValidate(Masks.cnpjMask)]],
       email: [null, [Validators.required, Validators.email]],
-      phone: [null, [Validators.required]],
+      phone: [null, [Validators.required, FormValidations.maskValidate(Masks.phoneMask)]],
       description: [null, [Validators.required]],
       password: [null, [Validators.required]],
       confirmPassword: [null, [FormValidations.equalsTo('password')]]
@@ -33,6 +34,7 @@ export class SignUpModalComponent implements OnInit {
     this.checkValidations();
 
     if(!this.formulario.valid){
+      // console.log(this.formulario);
       return
     } else{
       this.resetaForm();

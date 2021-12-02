@@ -43,8 +43,8 @@ aria-labelledby="createEventModalLabel" aria-hidden="true">
 
             <div class="mb-4">
               <label for="hour">*Hora</label>
-              <input type="text" class="form-control" id="hour" placeholder="Informe a hora de realização..."
-              autocomplete="off" formControlName="hour">
+              <input type="text" class="form-control" id="hour" hourMask [control]="formulario.get('hour')"
+              placeholder="Informe a hora de realização..." autocomplete="off" formControlName="hour">
 
               <app-error-msg label="Hora" [control]="formulario.get('hour')"></app-error-msg>
             </div>

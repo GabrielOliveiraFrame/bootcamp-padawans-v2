@@ -1,7 +1,6 @@
 .card{
   background-color: rgb(150, 241, 150);
   border-radius: 10px;
-  margin-right: 30px;
 }
 
 .card img{
@@ -9,8 +8,4 @@
   border-radius: 10px;
 }
 
-@media(max-width: 463px){
-  .card{
-    margin-right: 0;
-  }
-}
+
