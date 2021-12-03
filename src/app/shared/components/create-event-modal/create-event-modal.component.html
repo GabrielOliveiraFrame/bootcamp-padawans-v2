@@ -18,11 +18,11 @@ aria-labelledby="createEventModalLabel" aria-hidden="true">
         <form [formGroup] = "formulario" (ngSubmit) = "onSubmit()">
           <div class="form-group">
             <div class="mb-4">
-              <label for="eventName">*Nome do Evento</label>
-              <input type="text" class="form-control" id="eventName" placeholder="Insira o nome do evento..."
-              autocomplete="off" formControlName="name">
+              <label for="eventTitle">*Nome do Evento</label>
+              <input type="text" class="form-control" id="eventTitle" placeholder="Insira o nome do evento..."
+              autocomplete="off" formControlName="title">
 
-              <app-error-msg label="Nome do evento" [control]="formulario.get('name')"></app-error-msg>
+              <app-error-msg label="Nome do evento" [control]="formulario.get('title')"></app-error-msg>
             </div>
 
             <div class="mb-4">

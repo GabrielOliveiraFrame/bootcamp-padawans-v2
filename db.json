@@ -1,0 +1,24 @@
+{
+  "ongs": [
+    {
+      "user": "OngBrasil",
+      "cnpj": "12.312.312/3123-12",
+      "email": "ongbrasil@gmail.com",
+      "phone": "(11) 2323-2342",
+      "imageLink": "https://i0.wp.com/agenciacenarium.com.br/wp-content/uploads/2020/07/FOTO-FACHADA-NACER-scaled-e1595024926538.jpg?fit=700%2C467&ssl=1",
+      "description": "Criada com o objetivo de ajudar os necessitados",
+      "password": "brasil123",
+      "id": 1
+    }
+  ],
+  "events": [
+    {
+      "title": "Ajuda Brasil",
+      "local": "São Paulo",
+      "start": "2021-12-23",
+      "hour": "11:00",
+      "donations": "Cestas Básicas",
+      "id": 1
+    }
+  ]
+}

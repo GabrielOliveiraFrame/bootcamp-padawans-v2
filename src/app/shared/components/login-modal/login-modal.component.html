@@ -16,8 +16,8 @@
         <form [formGroup] = "formulario" (ngSubmit) = "onSubmit()">
           <div class="form-group">
             <div class="mb-4">
-              <label for="user">*Usuário</label>
-              <input type="text" class="form-control" id="user"placeholder="Insira seu Usuário..."
+              <label for="userLog">*Usuário</label>
+              <input type="text" class="form-control" id="userLog" placeholder="Insira seu Usuário..."
               autocomplete="off" formControlName="user">
 
               <app-error-msg label="Usuário" [control]="formulario.get('user')"></app-error-msg>
@@ -30,6 +30,8 @@
 
               <app-error-msg label="Senha" [control]="formulario.get('password')"></app-error-msg>
             </div>
+
+            <span class="alert alert-danger" *ngIf="rejectedLogin">Usuário e/ou Senha incorretos</span>
 
           </div>
 

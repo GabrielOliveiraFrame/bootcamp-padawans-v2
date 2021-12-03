@@ -16,11 +16,11 @@
         <form [formGroup] = "formulario" (ngSubmit) = "onSubmit()">
           <div class="form-group">
             <div class="mb-4">
-              <label for="name">*Usuário</label>
-              <input type="text" class="form-control" id="name" placeholder="Insira o nome da ONG..."
-              autocomplete="off" formControlName="name">
+              <label for="user">*Usuário</label>
+              <input type="text" class="form-control" id="user" placeholder="Insira o nome da ONG..."
+              autocomplete="off" formControlName="user">
 
-              <app-error-msg label="Nome da ONG" [control]="formulario.get('name')"></app-error-msg>
+              <app-error-msg label="Nome da ONG" [control]="formulario.get('user')"></app-error-msg>
             </div>
 
             <div class="mb-4">
@@ -45,6 +45,14 @@
               placeholder="Insira um telefone..." autocomplete="off" formControlName="phone">
 
               <app-error-msg label="Telefone" [control]="formulario.get('phone')"></app-error-msg>
+            </div>
+
+            <div class="mb-4">
+              <label for="imageLink">*Link da Imagem</label>
+              <input type="text" class="form-control" id="imageLink"
+              placeholder="Insira o link da imagem da ONG..." autocomplete="off" formControlName="imageLink">
+
+              <app-error-msg label="Link da Imagem" [control]="formulario.get('imageLink')"></app-error-msg>
             </div>
 
             <div class="mb-4">

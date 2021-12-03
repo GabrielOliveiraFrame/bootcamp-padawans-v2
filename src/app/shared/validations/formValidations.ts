@@ -26,7 +26,7 @@ export class FormValidations
         return isValid ? null : {'invalidMask': true};
       }
 
-      return null
+      return null;
     }
 
     return validator;
