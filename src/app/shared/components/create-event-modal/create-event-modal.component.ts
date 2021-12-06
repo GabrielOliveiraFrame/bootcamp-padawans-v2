@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EventFormModel } from '../../models/event-form-model';
 import { EventsService } from '../../services/events.service';
+import { NumbersUtilService } from '../../util/numbers-util.service';
 import { FormValidations } from '../../validations/formValidations';
 import { Masks } from '../../validations/masks';
 
@@ -22,7 +23,8 @@ export class CreateEventModalComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private eventsService: EventsService
+    private eventsService: EventsService,
+    private numbersUtilService: NumbersUtilService
   ) { }
 
   ngOnInit(): void {
@@ -46,13 +48,13 @@ export class CreateEventModalComponent implements OnInit {
       this.formModel.title = this.formulario.get('title')?.value;
       this.formModel.local = this.formulario.get('local')?.value;
       this.formModel.start = this.formulario.get('start')?.value;
-      this.formModel.hour = this.formulario.get('hour')?.value;
+      this.formModel.hour = this.numbersUtilService.onlyNumbers(this.formulario.get('hour')?.value);
       this.formModel.donations = this.formulario.get('donations')?.value;
 
       this.eventsService.createEvent(this.formModel).subscribe((data: any) => {
         this.resetaForm();
         this.closeModal();
-        
+
         location.reload();
       })
 

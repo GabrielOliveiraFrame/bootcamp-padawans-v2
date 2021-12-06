@@ -38,7 +38,8 @@ export class FormValidations
       'email': 'Insira um email válido.',
       'pattern': `Insira um ${fieldName} válido.`,
       'equalsTo': 'As senhas precisam ser iguais.',
-      'invalidMask': `Digite um(a) ${fieldName} válido(a).`
+      'invalidMask': `Digite um(a) ${fieldName} válido(a).`,
+      'existingData': `Este(a) ${fieldName} já está sendo utilizado(a).`
     };
 
     return config[validatorName];

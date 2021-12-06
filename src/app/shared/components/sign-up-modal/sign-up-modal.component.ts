@@ -1,7 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { map } from 'rxjs';
 import { SignUpFormModel } from '../../models/sign-up-form-model';
+import { CheckExistingService } from '../../services/check-existing.service';
 import { OngsService } from '../../services/ongs.service';
+import { NumbersUtilService } from '../../util/numbers-util.service';
 import { FormValidations } from '../../validations/formValidations';
 import { Masks } from '../../validations/masks';
 
@@ -20,13 +23,15 @@ export class SignUpModalComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private ongsService: OngsService
+    private ongsService: OngsService,
+    private numbersUtilService: NumbersUtilService,
+    private checkExistingService: CheckExistingService,
   ) { }
 
   ngOnInit(): void {
 
     this.formulario = this.formBuilder.group({
-      user: [null, [Validators.required]],
+      user: [null, [Validators.required], [this.checkExistingData('user').bind(this)]],
       cnpj: [null, [Validators.required, FormValidations.maskValidate(Masks.cnpjMask)]],
       email: [null, [Validators.required, Validators.email]],
       phone: [null, [Validators.required, FormValidations.maskValidate(Masks.phoneMask)]],
@@ -46,9 +51,9 @@ export class SignUpModalComponent implements OnInit {
       return
     } else{
       this.formModel.user = this.formulario.get('user')?.value;
-      this.formModel.cnpj = this.formulario.get('cnpj')?.value;
+      this.formModel.cnpj = this.numbersUtilService.onlyNumbers(this.formulario.get('cnpj')?.value);
       this.formModel.email = this.formulario.get('email')?.value;
-      this.formModel.phone = this.formulario.get('phone')?.value;
+      this.formModel.phone = this.numbersUtilService.onlyNumbers(this.formulario.get('phone')?.value);
       this.formModel.imageLink = this.formulario.get('imageLink')?.value
       this.formModel.description = this.formulario.get('description')?.value;
       this.formModel.password = this.formulario.get('password')?.value;
@@ -74,6 +79,16 @@ export class SignUpModalComponent implements OnInit {
 
   closeModal(){
     this.closeBtn.nativeElement.click();
+  }
+
+  checkExistingData(name: string){
+    const validator = (formControl: FormControl) => {
+      return this.checkExistingService.checkExistingData(formControl.value, name).pipe(
+        map((result: any) => result ? {existingData : true} : console.log(result))
+      )
+    }
+
+    return validator;
   }
 
 }

@@ -18,7 +18,7 @@ aria-labelledby="createEventModalLabel" aria-hidden="true">
         <form [formGroup] = "formulario" (ngSubmit) = "onSubmit()">
           <div class="form-group">
             <div class="mb-4">
-              <label for="eventTitle">*Nome do Evento</label>
+              <label for="eventTitle">Nome do Evento</label>
               <input type="text" class="form-control" id="eventTitle" placeholder="Insira o nome do evento..."
               autocomplete="off" formControlName="title">
 
@@ -34,7 +34,7 @@ aria-labelledby="createEventModalLabel" aria-hidden="true">
             </div>
 
             <div class="mb-4">
-              <label for="start">*Dia</label>
+              <label for="start">Dia</label>
               <input type="date" class="form-control" id="start"
               autocomplete="off" formControlName="start">
 
@@ -42,7 +42,7 @@ aria-labelledby="createEventModalLabel" aria-hidden="true">
             </div>
 
             <div class="mb-4">
-              <label for="hour">*Hora</label>
+              <label for="hour">Hora</label>
               <input type="text" class="form-control" id="hour" hourMask [control]="formulario.get('hour')"
               placeholder="Informe a hora de realização..." autocomplete="off" formControlName="hour">
 
@@ -50,7 +50,7 @@ aria-labelledby="createEventModalLabel" aria-hidden="true">
             </div>
 
             <div class="mb-4">
-              <label for="donations">*Doações</label>
+              <label for="donations">Doações</label>
               <input type="text" class="form-control" id="donations"
               placeholder="Diga o que será oferecido no evento..." autocomplete="off" formControlName="donations">
 

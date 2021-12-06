@@ -16,7 +16,7 @@
         <form [formGroup] = "formulario" (ngSubmit) = "onSubmit()">
           <div class="form-group">
             <div class="mb-4">
-              <label for="user">*Usuário</label>
+              <label for="user">Usuário</label>
               <input type="text" class="form-control" id="user" placeholder="Insira o nome da ONG..."
               autocomplete="off" formControlName="user">
 
@@ -24,7 +24,7 @@
             </div>
 
             <div class="mb-4">
-              <label for="cnpj">*Cnpj</label>
+              <label for="cnpj">Cnpj</label>
               <input type="text" class="form-control" id="cnpj" cnpjMask [control]="formulario.get('cnpj')"
               placeholder="Cnpj da instituição..." autocomplete="off" formControlName="cnpj">
 
@@ -32,7 +32,7 @@
             </div>
 
             <div class="mb-4">
-              <label for="email">*Email</label>
+              <label for="email">Email</label>
               <input type="text" class="form-control" id="email"
               placeholder="Email da instituição..." autocomplete="off" formControlName="email">
 
@@ -40,7 +40,7 @@
             </div>
 
             <div class="mb-4">
-              <label for="phone">*Telefone</label>
+              <label for="phone">Telefone</label>
               <input type="text" class="form-control" id="phone" phoneMask [control]="formulario.get('phone')"
               placeholder="Insira um telefone..." autocomplete="off" formControlName="phone">
 
@@ -48,7 +48,7 @@
             </div>
 
             <div class="mb-4">
-              <label for="imageLink">*Link da Imagem</label>
+              <label for="imageLink">Link da Imagem</label>
               <input type="text" class="form-control" id="imageLink"
               placeholder="Insira o link da imagem da ONG..." autocomplete="off" formControlName="imageLink">
 
@@ -56,7 +56,7 @@
             </div>
 
             <div class="mb-4">
-              <label for="description">*Descrição</label>
+              <label for="description">Descrição</label>
               <textarea name="description" class="form-control" id="description"
               placeholder="Conte-nos um pouco sobre sua ONG..." autocomplete="off"
               formControlName="description"></textarea>
@@ -65,7 +65,7 @@
             </div>
 
             <div class="mb-4">
-              <label for="passwordSign">*Senha</label>
+              <label for="passwordSign">Senha</label>
               <input type="password" class="form-control" id="passwordSign"
               placeholder="Insira uma senha..." autocomplete="off" formControlName="password">
 
@@ -73,7 +73,7 @@
             </div>
 
             <div class="mb-4">
-              <label for="passwordConfirm">*Confirme a Senha</label>
+              <label for="passwordConfirm">Confirme a Senha</label>
               <input type="password" class="form-control" id="passwordConfirm"
               placeholder="Confirme sua Senha..." autocomplete="off" formControlName="confirmPassword">
 

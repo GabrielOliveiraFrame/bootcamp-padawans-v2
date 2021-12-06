@@ -10,7 +10,7 @@ export class EventsService {
   constructor(private http: HttpClient) { }
 
   getAll(){
-    return this.http.get('http://localhost:3000/events');
+    return this.http.get('http://localhost:3000/events?_sort=start,hour&_order=desc,asc');
   }
 
   createEvent(event: EventFormModel){

@@ -2,7 +2,7 @@
   <div class="card-header">{{event.title}}</div>
     <div class="card-body text-dark">
       <p class="card-text">Dia: {{event.start | date:"dd/MM/yy"}}</p>
-      <p class="card-text">Hora: {{event.hour}}</p>
+      <p class="card-text">Hora: {{event.hour | hour}}</p>
     </div>
 
     <div class="row">
@@ -10,7 +10,7 @@
         <div [class.collapse]="cardId!==i" id="event-{{i}}" >
           <div class="card-body pt-0" >
             <p class="card-text">Local: {{event.local}}</p>
-            <p class="card-text">Tipo de Doação: {{event.donations}}</p>
+            <p class="card-text mr-5">Tipo de Doação: {{event.donations}}</p>
             <!-- <p class="card-text mr-5">Contato: {{event.phone}}</p> -->
           </div>
         </div>
