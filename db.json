@@ -83,6 +83,14 @@
       "hour": "1000",
       "donations": "Distribuição de ração destinadas para gatos e cachorros",
       "id": 4
+    },
+    {
+      "title": "Natal Sem Fome",
+      "local": "Parque do Povo",
+      "start": "2021-12-24",
+      "hour": "2100",
+      "donations": "Cestas contendo produtos natalinos",
+      "id": 5
     }
   ]
 }
