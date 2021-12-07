@@ -13,10 +13,8 @@ export class CheckExistingService {
 
   checkExistingData(value: string, name: string){
     return this.http.get(this.url).pipe(
-      map((data: any) => {
-          return data.forEach((e: any) => {
-            return e.name == value;
-          });
+      map((data: any, index: number) => {
+        return data[index][name] == value ? true : false;
       })
     )
   }

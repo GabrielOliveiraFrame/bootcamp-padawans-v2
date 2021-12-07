@@ -32,9 +32,11 @@ export class SignUpModalComponent implements OnInit {
 
     this.formulario = this.formBuilder.group({
       user: [null, [Validators.required], [this.checkExistingData('user').bind(this)]],
-      cnpj: [null, [Validators.required, FormValidations.maskValidate(Masks.cnpjMask)]],
-      email: [null, [Validators.required, Validators.email]],
-      phone: [null, [Validators.required, FormValidations.maskValidate(Masks.phoneMask)]],
+      cnpj: [null, [Validators.required, FormValidations.maskValidate(Masks.cnpjMask)],
+      [this.checkExistingData('cnpj').bind(this)]],
+      email: [null, [Validators.required, Validators.email], [this.checkExistingData('email').bind(this)]],
+      phone: [null, [Validators.required, FormValidations.maskValidate(Masks.phoneMask)],
+      [this.checkExistingData('phone').bind(this)]],
       imageLink: [null, [Validators.required]],
       description: [null, [Validators.required]],
       password: [null, [Validators.required]],
@@ -84,7 +86,7 @@ export class SignUpModalComponent implements OnInit {
   checkExistingData(name: string){
     const validator = (formControl: FormControl) => {
       return this.checkExistingService.checkExistingData(formControl.value, name).pipe(
-        map((result: any) => result ? {existingData : true} : console.log(result))
+        map((result: any) => result ? {existingData : true} : null)
       )
     }
 
