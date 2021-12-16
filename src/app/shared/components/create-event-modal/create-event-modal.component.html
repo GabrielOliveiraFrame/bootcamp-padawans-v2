@@ -15,7 +15,7 @@ aria-labelledby="createEventModalLabel" aria-hidden="true">
       </div>
       <div class="modal-body">
 
-        <form [formGroup] = "formulario" (ngSubmit) = "onSubmit()">
+        <form [formGroup] = "formulario">
           <div class="form-group">
             <div class="mb-4">
               <label for="eventTitle">Nome do Evento</label>
@@ -61,7 +61,7 @@ aria-labelledby="createEventModalLabel" aria-hidden="true">
 
           <div class="w-100 d-flex justify-content-end mt-4">
             <button type="button" class="btn btn-danger mr-3" data-dismiss="modal" #closeBtn>Fechar</button>
-            <button type="submit" class="btn btn-success">Enviar</button>
+            <button type="submit" class="btn btn-success" (click) = "onSubmit()">Enviar</button>
           </div>
         </form>
 
@@ -69,3 +69,7 @@ aria-labelledby="createEventModalLabel" aria-hidden="true">
 
     </div>
   </div>
+</div>
+
+<app-back-end-msg *ngIf="success" headerMsg="Parabéns!"
+bodyMsg="Seu evento foi criado com sucesso"></app-back-end-msg>

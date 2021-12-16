@@ -13,7 +13,7 @@
       </div>
       <div class="modal-body">
 
-        <form [formGroup] = "formulario" (ngSubmit) = "onSubmit()">
+        <form [formGroup] = "formulario">
           <div class="form-group">
             <div class="mb-4">
               <label for="userLog">Usuário</label>
@@ -37,7 +37,7 @@
 
           <div class="w-100 d-flex justify-content-end mt-4">
             <button type="button" class="btn btn-danger mr-3" data-dismiss="modal" #closeBtn>Fechar</button>
-            <button type="submit" class="btn btn-success">Entrar</button>
+            <button type="submit" class="btn btn-success" (click) = "onSubmit()">Entrar</button>
           </div>
         </form>
 
@@ -45,3 +45,5 @@
 
     </div>
   </div>
+</div>
+

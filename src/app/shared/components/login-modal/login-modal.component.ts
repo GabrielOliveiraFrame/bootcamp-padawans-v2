@@ -1,7 +1,9 @@
+import { setUpdateNavTrue } from '../../../../ngrx';
 import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginFormModel } from '../../models/login-form-model';
 import { OngsService } from '../../services/ongs.service';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-login-modal',
@@ -24,7 +26,8 @@ export class LoginModalComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private ongsService: OngsService
+    private ongsService: OngsService,
+    private store: Store<{updateRequest: boolean}>
   ) { }
 
   ngOnInit(): void {
@@ -39,9 +42,7 @@ export class LoginModalComponent implements OnInit {
   onSubmit(){
     this.checkValidations();
 
-    if(!this.formulario.valid){
-      return
-    } else{
+    if(this.formulario.valid){
       this.formModel.user = this.formulario.get('user')?.value;
       this.formModel.password = this.formulario.get('password')?.value;
 
@@ -77,14 +78,14 @@ export class LoginModalComponent implements OnInit {
   }
 
   confirmLogin(){
+
     this.userName = this.formulario.get('user')?.value;
     localStorage.setItem('userName', this.userName);
 
+    this.store.dispatch(setUpdateNavTrue());
+
     this.resetaForm();
     this.closeModal();
-
-    //para atualizar o componente mostrado
-    location.reload();
   }
 
 }

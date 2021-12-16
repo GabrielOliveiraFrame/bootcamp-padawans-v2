@@ -13,7 +13,7 @@
       </div>
       <div class="modal-body">
 
-        <form [formGroup] = "formulario" (ngSubmit) = "onSubmit()">
+        <form [formGroup] = "formulario">
           <div class="form-group">
             <div class="mb-4">
               <label for="user">Usuário</label>
@@ -85,11 +85,15 @@
 
           <div class="w-100 d-flex justify-content-end mt-4">
             <button type="button" class="btn btn-danger mr-3" data-dismiss="modal" #closeBtn>Fechar</button>
-            <button type="submit" class="btn btn-success">Criar Conta</button>
+            <button type="submit" class="btn btn-success" (click) = "onSubmit()">Criar Conta</button>
           </div>
         </form>
 
       </div>
-
     </div>
   </div>
+</div>
+
+
+<app-back-end-msg *ngIf="success" headerMsg="Parabéns"
+bodyMsg="Sua conta foi criada com sucesso! Faça login e aproveite"></app-back-end-msg>

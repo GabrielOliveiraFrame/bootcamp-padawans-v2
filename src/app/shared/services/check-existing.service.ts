@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { from, map } from 'rxjs';
+import { filter, map, take, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +10,17 @@ export class CheckExistingService {
 
   constructor(private http: HttpClient) { }
 
-  private url = "http://localhost:3000/ongs";
-
   checkExistingData(value: string, name: string){
-    return this.http.get(this.url).pipe(
-      map((data: any, index: number) => {
-        return data[index][name] == value ? true : false;
+    return this.http.get(environment.API_ONG_URL).pipe(
+      map((data: any) =>{
+        return Object.keys(data).map(function(key) {
+          return data[key][name] == value ? true : false;
+        });
+      }),
+      map((data: any) => {
+        return data.filter((e: any) => {
+          return e == true;
+        })
       })
     )
   }

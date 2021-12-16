@@ -1,16 +1,17 @@
-import { AbstractControl} from '@angular/forms';
 import { Directive, HostListener, Input } from '@angular/core';
-import { StringMaskService } from '../../services/string-mask.service';
-import { Masks } from '../../validations/masks';
+import { AbstractControl } from '@angular/forms';
+import * as StringMask from 'string-mask';
 
 @Directive({
-  selector: '[phoneMask]'
+  selector: '[cnpjMask]'
 })
-export class PhoneDirective{
+export class CnpjDirective {
 
   delete: boolean = false;
 
-  constructor(private stringMaskService: StringMaskService) {}
+  cnpjMask = new StringMask('00.000.000/0000-00');
+
+  constructor() {}
 
   @Input()
   control!: AbstractControl | null;
@@ -33,10 +34,10 @@ export class PhoneDirective{
   transform(value: string): void {
 
     if(!this.delete){
-
-      let result = this.stringMaskService.stringTransform(value, Masks.phoneMask);
+      value = value.replace(/[^0-9]/g, '');
+      let result = this.cnpjMask.apply(value);
       this.control?.setValue(result);
     }
   }
-}
 
+}

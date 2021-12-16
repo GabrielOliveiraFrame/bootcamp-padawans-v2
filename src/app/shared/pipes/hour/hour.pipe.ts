@@ -1,5 +1,5 @@
-import { Masks } from './../../validations/masks';
 import { Pipe, PipeTransform } from '@angular/core';
+import * as StringMask from 'string-mask';
 
 @Pipe({
   name: 'hour'
@@ -7,7 +7,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class HourPipe implements PipeTransform {
 
   transform(value: string): string {
-    let result = Masks.hourMask.apply(value);
+    let hourMask = new StringMask('00:00');
+    let result = hourMask.apply(value);
     return result;
   }
 

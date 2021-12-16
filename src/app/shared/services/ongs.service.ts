@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { SignUpFormModel } from '../models/sign-up-form-model';
 
 @Injectable({
@@ -10,14 +11,14 @@ export class OngsService {
   constructor(private http: HttpClient) { }
 
   getAll(){
-    return this.http.get('http://localhost:3000/ongs');
+    return this.http.get(environment.API_ONG_URL);
   }
 
   createOng(ong: SignUpFormModel){
-    return this.http.post('http://localhost:3000/ongs', ong);
+    return this.http.post(environment.API_ONG_URL, ong);
   }
 
   getByUser(user: string){
-    return this.http.get(`http://localhost:3000/ongs?user=${user}`);
+    return this.http.get(`${environment.API_ONG_URL}?user=${user}`);
   }
 }

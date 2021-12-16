@@ -1,6 +1,7 @@
 .card{
   background-color: rgb(150, 241, 150);
   border-radius: 10px;
+  width: 18rem;
 }
 
 .card img{

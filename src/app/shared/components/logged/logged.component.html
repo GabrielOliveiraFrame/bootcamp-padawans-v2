@@ -2,3 +2,6 @@
     <h5 class="mr-3 d-flex align-items-end">Olá, {{ongName}}</h5>
     <button type="button" class="btn btn-danger" (click)="closeLog()">Sair</button>
 </div>
+
+<app-back-end-msg *ngIf="success" headerMsg="Bem Vindo"
+bodyMsg="Você fez login na sua conta!"></app-back-end-msg>

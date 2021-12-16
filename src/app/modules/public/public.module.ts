@@ -16,7 +16,7 @@ import { SignOngsContainerComponent } from './components/sign-ongs-container/sig
     CommonModule,
     SharedComponentsModule,
     RouterModule,
-    PublicRoutingModule
+    PublicRoutingModule,
   ]
 })
 export class PublicModule { }

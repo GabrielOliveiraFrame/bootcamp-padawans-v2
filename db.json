@@ -91,6 +91,14 @@
       "hour": "2100",
       "donations": "Cestas contendo produtos natalinos",
       "id": 5
+    },
+    {
+      "title": "Amigos do bem",
+      "local": "Pacaembu",
+      "start": "2021-12-11",
+      "hour": "1000",
+      "donations": "Cestas basicas",
+      "id": 6
     }
   ]
 }

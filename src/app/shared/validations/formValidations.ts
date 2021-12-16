@@ -1,4 +1,5 @@
 import {FormControl } from "@angular/forms";
+import * as StringMask from 'string-mask';
 
 export class FormValidations
 {
@@ -18,10 +19,11 @@ export class FormValidations
 
   static maskValidate(formatter: any){
     const validator = (formControl: FormControl) => {
+      let mask = new StringMask(formatter);
 
       if(formControl?.value){
         let onlyNumbers = formControl?.value.replace(/[^0-9]/g, '');
-        let isValid = formatter.validate(onlyNumbers);
+        let isValid = mask.validate(onlyNumbers);
 
         return isValid ? null : {'invalidMask': true};
       }

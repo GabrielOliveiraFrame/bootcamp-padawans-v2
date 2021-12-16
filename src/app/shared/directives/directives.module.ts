@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PhoneDirective } from './phone/phone.directive';
-import { CnpjDirective } from './cnpj/cnpj.directive';
-import { HourDirective } from './hour/hour.directive';
+import { PhoneDirective } from './masks/phone/phone.directive';
+import { CnpjDirective } from './masks/cnpj/cnpj.directive';
+import { HourDirective } from './masks/hour/hour.directive';
 
 
 

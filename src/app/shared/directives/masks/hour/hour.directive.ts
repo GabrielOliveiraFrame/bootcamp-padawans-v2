@@ -1,16 +1,17 @@
 import { Directive, HostListener, Input } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
-import { StringMaskService } from '../../services/string-mask.service';
-import { Masks } from '../../validations/masks';
+import * as StringMask from 'string-mask';
 
 @Directive({
-  selector: '[cnpjMask]'
+  selector: '[hourMask]'
 })
-export class CnpjDirective {
+export class HourDirective {
 
   delete: boolean = false;
 
-  constructor(private stringMaskService: StringMaskService) {}
+  hourMask = new StringMask('00:00');
+
+  constructor() {}
 
   @Input()
   control!: AbstractControl | null;
@@ -34,7 +35,8 @@ export class CnpjDirective {
 
     if(!this.delete){
 
-      let result = this.stringMaskService.stringTransform(value, Masks.cnpjMask);
+      value = value.replace(/[^0-9]/g, '');
+      let result = this.hourMask.apply(value);
       this.control?.setValue(result);
     }
   }

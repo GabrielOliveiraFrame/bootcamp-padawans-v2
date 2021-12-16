@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { EventFormModel } from '../models/event-form-model';
 
 @Injectable({
@@ -10,10 +11,10 @@ export class EventsService {
   constructor(private http: HttpClient) { }
 
   getAll(){
-    return this.http.get('http://localhost:3000/events?_sort=start,hour&_order=desc,asc');
+    return this.http.get(`${environment.API_EVENT_URL}?_sort=start,hour&_order=desc,asc`);
   }
 
   createEvent(event: EventFormModel){
-    return this.http.post('http://localhost:3000/events', event);
+    return this.http.post(environment.API_EVENT_URL, event);
   }
 }
