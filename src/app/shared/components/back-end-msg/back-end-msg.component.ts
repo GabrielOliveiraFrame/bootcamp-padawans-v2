@@ -25,8 +25,4 @@ export class BackEndMsgComponent implements OnInit {
     this.toast.show();
   }
 
-  closeToast(){
-    this.toast.hide();
-  }
-
 }

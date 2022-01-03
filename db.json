@@ -99,6 +99,14 @@
       "hour": "1000",
       "donations": "Cestas basicas",
       "id": 6
+    },
+    {
+      "title": "Ano Novo Feliz",
+      "local": "Paulista",
+      "start": "2021-12-31",
+      "hour": "1322",
+      "donations": "Cestas Básicas",
+      "id": 7
     }
   ]
 }
