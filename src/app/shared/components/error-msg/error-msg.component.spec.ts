@@ -6,6 +6,8 @@ describe('ErrorMsgComponent', () => {
   let component: ErrorMsgComponent;
   let fixture: ComponentFixture<ErrorMsgComponent>;
 
+  let control: Object;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ ErrorMsgComponent ]
@@ -22,4 +24,34 @@ describe('ErrorMsgComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('the errorMsg method', () => {
+    it('should return "Email é obrigatório."', () => {
+      component.label = 'Email';
+
+      control = {
+        errors: {required: true},
+        touched: true,
+        dirty: true
+      }
+
+      component.control = control;
+      expect(component.errorMessage).toEqual('Email é obrigatório.');
+    });
+
+    it('should return null', () => {
+      component.label = 'Email';
+
+      control = {
+        errors: {required: true},
+        touched: false,
+        dirty: false
+      }
+
+      component.control = control;
+      expect(component.errorMessage).toBeNull();
+    })
+  })
+
+
 });

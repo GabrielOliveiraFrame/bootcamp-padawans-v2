@@ -36,7 +36,7 @@ describe('CheckExistingService', () => {
       httpClientSpy.get.and.returnValue(of(signOngs));
 
       service.checkExistingData(sentOng, 'user').subscribe((data) => {
-        expect(data[0]).toEqual(true);
+        expect(data[0]).toBeTruthy();
       })
     })
   })
