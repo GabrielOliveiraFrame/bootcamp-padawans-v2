@@ -1,0 +1,62 @@
+<main class="d-flex flex-column align-items-center justify-content-center">
+  <div class="row p-0 m-0 w-100 py-4">
+    <div class="col-md-10 mx-auto">
+      <div class="card border-secondary">
+        <h5 class="card-header bg-dark text-white">Criar Evento</h5>
+        <div class="card-body">
+          <form [formGroup] = "formulario">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="eventTitle">Nome</label>
+                <input type="text" class="form-control mb-2" id="eventTitle" placeholder="Insira o nome do evento..."
+                autocomplete="off" formControlName="title">
+                <app-error-msg label="Nome do evento"
+                [control]="formulario.get('title')"></app-error-msg>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="local">Local</label>
+                <input type="text" class="form-control mb-2" id="local" placeholder="Insira o endereço do evento..."
+                autocomplete="off" formControlName="local">
+                <app-error-msg label="Local do evento"
+                [control]="formulario.get('local')"></app-error-msg>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="start">Dia</label>
+                <input type="date" class="form-control" id="start"
+                autocomplete="off" formControlName="start">
+
+                <app-error-msg label="Data" [control]="formulario.get('start')"></app-error-msg>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="hour">Hora</label>
+                <input type="time" class="form-control" id="hour"
+                placeholder="Informe a hora de realização..." autocomplete="off" formControlName="hour">
+
+                <app-error-msg label="Hora" [control]="formulario.get('hour')"></app-error-msg>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="donations">Doações</label>
+                <input type="text" class="form-control" id="donations"
+                placeholder="Diga o que será oferecido no evento..." autocomplete="off" formControlName="donations">
+
+                <app-error-msg label="Doações" [control]="formulario.get('donations')"></app-error-msg>
+              </div>
+            </div>
+
+            <div class="w-100 d-flex justify-content-end mt-2">
+              <button type="button" class="btn btn-primary mr-3" (click)="navigate()">Voltar</button>
+              <button type="submit" class="btn btn-success" (click) = "onSubmit()">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-back-end-msg *ngIf="success" headerMsg="Parabéns"
+  bodyMsg="Seu evento foi criado com sucesso!"></app-back-end-msg>
+</main>

@@ -1,0 +1,9 @@
+main{
+  min-height: 90vh;
+  background-color: #e8e8e883;
+}
+
+textarea{
+  height: 150px;
+  resize: none;
+}

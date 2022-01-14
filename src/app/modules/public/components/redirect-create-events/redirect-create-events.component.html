@@ -1,0 +1,4 @@
+<app-request-login-modal *ngIf="!userName"></app-request-login-modal>
+<div *ngIf="userName">
+  <button type="button" class="btn btn-success btn-lg w-100" (click)="navigate()">Criar Evento</button>
+</div>

@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginFormModel } from '../../models/login-form-model';
 import { OngsService } from '../../services/ongs.service';
 import { Store } from '@ngrx/store';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-modal',
@@ -27,16 +28,19 @@ export class LoginModalComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private ongsService: OngsService,
-    private store: Store<{updateRequest: boolean}>
+    private store: Store<{updateRequest: boolean}>,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.createForm();
+  }
 
+  createForm() {
     this.formulario = this.formBuilder.group({
       user: [null, [Validators.required]],
       password: [null, [Validators.required]]
     });
-
   }
 
   onSubmit(){
@@ -77,6 +81,10 @@ export class LoginModalComponent implements OnInit {
       })
   }
 
+  navigate(){
+    this.router.navigate(['public/dashboard']);
+  }
+
   confirmLogin(){
 
     this.userName = this.formulario.get('user')?.value;
@@ -86,6 +94,7 @@ export class LoginModalComponent implements OnInit {
 
     this.resetaForm();
     this.closeModal();
+    this.navigate();
   }
 
 }

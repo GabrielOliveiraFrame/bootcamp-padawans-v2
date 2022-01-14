@@ -5,6 +5,7 @@ import { FormBuilder } from '@angular/forms';
 
 import { LoginModalComponent } from './login-modal.component';
 import { of } from 'rxjs';
+import { Router } from '@angular/router';
 
 describe('LoginModalComponent', () => {
   let component: LoginModalComponent;
@@ -12,16 +13,20 @@ describe('LoginModalComponent', () => {
 
   let ongsServiceSpy: jasmine.SpyObj<OngsService>;
   let storeSpy: jasmine.SpyObj<Store>;
+  let routerSpy: jasmine.SpyObj<Router>;
 
   beforeEach(async () => {
     const ongsServiceSpyObj = jasmine.createSpyObj('OngsService', ['getByUser']);
     const storeSpyObj = jasmine.createSpyObj('Store', ['dispatch']);
+
+    const routerSpyObj = jasmine.createSpyObj('Router', ['navigate']);
 
     await TestBed.configureTestingModule({
       declarations: [ LoginModalComponent ],
       providers: [
         { provide: OngsService, useValue: ongsServiceSpyObj },
         { provide: Store, useValue: storeSpyObj },
+        { provide: Router, useValue: routerSpyObj},
         FormBuilder
       ]
     })
@@ -63,7 +68,7 @@ describe('LoginModalComponent', () => {
 
       component.onSubmit();
 
-      expect(component.rejectedLogin).toBeTruthy(); 
+      expect(component.rejectedLogin).toBeTruthy();
     })
   })
 });

@@ -1,8 +1,13 @@
 <ul class="nav nav-pills">
   <li class="nav-item mr-2">
-    <app-sign-up-modal></app-sign-up-modal>
+    <button type="button" class="btn btn-dark" (click)="navigate()">
+      Cadastro ONG'S
+    </button>
   </li>
   <li class="nav-item">
     <app-login-modal></app-login-modal>
   </li>
 </ul>
+
+<app-back-end-msg *ngIf="signUpSuccess" headerMsg="Parabéns"
+  bodyMsg="Sua conta foi criada com sucesso! Faça login e aproveite"></app-back-end-msg>

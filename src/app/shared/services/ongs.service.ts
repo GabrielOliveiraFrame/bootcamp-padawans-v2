@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { SignUpFormModel } from '../models/sign-up-form-model';
 
@@ -7,6 +7,9 @@ import { SignUpFormModel } from '../models/sign-up-form-model';
   providedIn: 'root'
 })
 export class OngsService {
+  [x: string]: any;
+  createdOng = new EventEmitter<boolean>();
+  static createdOng: any;
 
   constructor(private http: HttpClient) { }
 

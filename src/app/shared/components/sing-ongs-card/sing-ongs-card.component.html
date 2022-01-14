@@ -1,8 +1,0 @@
-<div *ngFor="let ong of ongsList | async" class="card mt-5 mr-md-3 mr-sm-3">
-  <img src={{ong.imageLink}} class="card-img-top mt-3 mx-auto" alt="Imagem da Ong">
-  <div class="card-body text-center">
-    <h4 class="card-title">{{ong.user}}</h4>
-    <p class="card-text">{{ong.description}}</p>
-    <p class="card-text"> Contato: {{ong.phone | phone}}</p>
-  </div>
-</div>

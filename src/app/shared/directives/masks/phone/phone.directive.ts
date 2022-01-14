@@ -11,14 +11,17 @@ export class PhoneDirective{
 
   phoneMask = new StringMask('(00) 90000-0000');
 
+  onlyNumbers!: any;
+
   constructor() {}
 
   @Input()
   control!: AbstractControl | null;
 
-  @HostListener('input')
+  @HostListener('ngModelChange')
   onChange(): void{
-    this.transform(this.control?.value);
+    this.onlyNumbers = this.control?.value.replace(/[^0-9]/g, '');
+    this.transform(this.onlyNumbers);
   }
 
   @HostListener('keydown.backspace')
@@ -29,13 +32,15 @@ export class PhoneDirective{
   @HostListener('keyup.backspace')
   deleteUp() {
     this.delete = false;
+
+    this.onlyNumbers = this.control?.value.replace(/[^0-9]/g, '');
+    if(this.onlyNumbers.length === 10 || this.onlyNumbers.length === 11) {
+      this.transform(this.onlyNumbers);
+    }
   }
 
-  transform(value: string): void {
-
+  transform(value: any): void {
     if(!this.delete){
-
-      value = value.replace(/[^0-9]/g, '');
       let result = this.phoneMask.apply(value);
       this.control?.setValue(result);
     }

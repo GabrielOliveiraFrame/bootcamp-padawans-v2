@@ -37,6 +37,7 @@ export class HourDirective {
 
       value = value.replace(/[^0-9]/g, '');
       let result = this.hourMask.apply(value);
+      
       this.control?.setValue(result);
     }
   }

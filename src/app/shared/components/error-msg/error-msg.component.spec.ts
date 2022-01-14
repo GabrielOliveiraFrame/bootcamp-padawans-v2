@@ -26,7 +26,7 @@ describe('ErrorMsgComponent', () => {
   });
 
   describe('the errorMsg method', () => {
-    it('should return "Email é obrigatório."', () => {
+    it('should return "Email é obrigatório(a)."', () => {
       component.label = 'Email';
 
       control = {
@@ -36,7 +36,7 @@ describe('ErrorMsgComponent', () => {
       }
 
       component.control = control;
-      expect(component.errorMessage).toEqual('Email é obrigatório.');
+      expect(component.errorMessage).toEqual('Email é obrigatório(a).');
     });
 
     it('should return null', () => {

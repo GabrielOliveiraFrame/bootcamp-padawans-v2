@@ -1,10 +1,10 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import {Toast} from 'bootstrap'
+import { Component, Input, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-back-end-msg',
   templateUrl: './back-end-msg.component.html',
-  styleUrls: ['./back-end-msg.component.css']
+  styleUrls: ['./back-end-msg.component.css'],
 })
 export class BackEndMsgComponent implements OnInit {
 
@@ -14,15 +14,10 @@ export class BackEndMsgComponent implements OnInit {
   @Input()
   bodyMsg!: string;
 
-  @ViewChild('toast', {static: true}) toastEl!: ElementRef;
-
-  toast!: Toast;
-
-  constructor() { }
+  constructor( private toastr: ToastrService ) { }
 
   ngOnInit(): void {
-    this.toast = new Toast(this.toastEl.nativeElement,{});
-    this.toast.show();
+    this.toastr.success(this.bodyMsg, this.headerMsg);
   }
 
 }

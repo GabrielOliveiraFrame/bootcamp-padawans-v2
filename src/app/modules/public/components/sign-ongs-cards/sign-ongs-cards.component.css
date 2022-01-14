@@ -1,0 +1,17 @@
+.card{
+  background-color: rgb(150, 241, 150);
+  border-radius: 10px;
+  width: 18rem;
+}
+
+.imgBox{
+  width: 230px;
+  height: 150px;
+}
+
+.imgBox img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}

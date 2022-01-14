@@ -36,7 +36,7 @@ export class FormValidations
 
   static getErrorMsg(fieldName: string, validatorName: string){
     const config: any = {
-      'required': `${fieldName} é obrigatório.`,
+      'required': `${fieldName} é obrigatório(a).`,
       'email': 'Insira um email válido.',
       'pattern': `Insira um ${fieldName} válido.`,
       'equalsTo': 'As senhas precisam ser iguais.',
