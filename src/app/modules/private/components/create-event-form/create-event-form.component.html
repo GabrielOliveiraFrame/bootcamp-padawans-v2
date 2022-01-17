@@ -6,44 +6,64 @@
         <div class="card-body">
           <form [formGroup] = "formulario">
             <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="eventTitle">Nome</label>
-                <input type="text" class="form-control mb-2" id="eventTitle" placeholder="Insira o nome do evento..."
-                autocomplete="off" formControlName="title">
-                <app-error-msg label="Nome do evento"
-                [control]="formulario.get('title')"></app-error-msg>
+              <div class="form-group col-md-6 row mx-0">
+                <label for="eventTitle" class="col-sm-4 col-form-label">Nome</label>
+
+                <div class="col-sm-8">
+                  <input type="text" class="form-control mb-2" id="eventTitle"
+                  autocomplete="off" formControlName="title">
+
+                  <app-error-msg label="Nome do evento"
+                  [control]="formulario.get('title')"></app-error-msg>
+                </div>
               </div>
 
-              <div class="form-group col-md-6">
-                <label for="local">Local</label>
-                <input type="text" class="form-control mb-2" id="local" placeholder="Insira o endereço do evento..."
-                autocomplete="off" formControlName="local">
-                <app-error-msg label="Local do evento"
-                [control]="formulario.get('local')"></app-error-msg>
+              <div class="form-group col-md-6 row mx-0">
+                <label for="local" class="col-sm-4 col-form-label">Local</label>
+
+                <div class="col-sm-8">
+                  <input type="text" class="form-control mb-2" id="local"
+                  autocomplete="off" formControlName="local">
+
+                  <app-error-msg label="Local do evento"
+                  [control]="formulario.get('local')"></app-error-msg>
+                </div>
               </div>
             </div>
 
             <div class="form-row">
-              <div class="form-group col-md-3">
-                <label for="start">Dia</label>
-                <input type="date" class="form-control" id="start"
-                autocomplete="off" formControlName="start">
+              <div class="form-group col-md-6 row mx-0">
+                <label for="start" class="col-sm-4 col-form-label">Dia</label>
 
-                <app-error-msg label="Data" [control]="formulario.get('start')"></app-error-msg>
+                <div class="col-sm-8">
+                  <input type="date" class="form-control" id="start"
+                  autocomplete="off" formControlName="start">
+
+                  <app-error-msg label="Data" [control]="formulario.get('start')"></app-error-msg>
+                </div>
               </div>
-              <div class="form-group col-md-3">
-                <label for="hour">Hora</label>
-                <input type="time" class="form-control" id="hour"
-                placeholder="Informe a hora de realização..." autocomplete="off" formControlName="hour">
+              <div class="form-group col-md-6 row mx-0">
+                <label for="donations" class="col-sm-4 col-form-label">Doações</label>
 
-                <app-error-msg label="Hora" [control]="formulario.get('hour')"></app-error-msg>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="donations"
+                  autocomplete="off" formControlName="donations">
+
+                  <app-error-msg label="Doações" [control]="formulario.get('donations')"></app-error-msg>
+                </div>
               </div>
-              <div class="form-group col-md-6">
-                <label for="donations">Doações</label>
-                <input type="text" class="form-control" id="donations"
-                placeholder="Diga o que será oferecido no evento..." autocomplete="off" formControlName="donations">
+            </div>
 
-                <app-error-msg label="Doações" [control]="formulario.get('donations')"></app-error-msg>
+            <div class="form-row">
+              <div class="form-group col-md-6 row mx-0">
+                <label for="hour" class="col-sm-4 col-form-label">Hora</label>
+
+                <div class="col-sm-8">
+                  <input type="time" class="form-control" id="hour"
+                  autocomplete="off" formControlName="hour">
+
+                  <app-error-msg label="Hora" [control]="formulario.get('hour')"></app-error-msg>
+                </div>
               </div>
             </div>
 

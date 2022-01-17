@@ -47,5 +47,12 @@ describe('RedirectCreateEventsComponent', () => {
     component.update$.subscribe((data:any) => {
       expect(data.updateNavRequest).toBeTruthy();
     })
-  })
+  });
+
+  describe('the navigate method', () => {
+    it('shold navigate to have been called', () => {
+      component.navigate();
+      expect(routerSpy.navigate).toHaveBeenCalledWith(['/private/create-event']);
+    })
+  });
 });

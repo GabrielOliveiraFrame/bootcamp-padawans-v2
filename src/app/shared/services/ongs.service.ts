@@ -7,7 +7,6 @@ import { SignUpFormModel } from '../models/sign-up-form-model';
   providedIn: 'root'
 })
 export class OngsService {
-  [x: string]: any;
   createdOng = new EventEmitter<boolean>();
   static createdOng: any;
 

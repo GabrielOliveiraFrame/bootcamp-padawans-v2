@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, flush, TestBed, tick } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
@@ -17,7 +17,10 @@ describe('SignUpFormComponent', () => {
   let routerSpy: jasmine.SpyObj<Router>;
 
   beforeEach(async () => {
-    const ongsServiceSpyObj = jasmine.createSpyObj('OngsService', ['createOng']);
+    const ongsServiceSpyObj = {
+      createdOng: { emit: jasmine.createSpy('emit') },
+      createOng: () => of(component.formModel)
+    }
     const checkExistingServiceSpyObj = jasmine.createSpyObj('CheckExistingService', ['checkExistingData']);
     const routerSpyObj = jasmine.createSpyObj('Router', ['navigate']);
 
@@ -51,7 +54,7 @@ describe('SignUpFormComponent', () => {
   });
 
   describe('the onSubmit method', () => {
-    it('should call the navigate method', () => {
+    it('should call the navigate method', fakeAsync(() => {
       checkExistingServiceSpy.checkExistingData.and.returnValue(of([]));
 
       component.formulario.get('user')?.setValue('OngBrasil');
@@ -63,15 +66,15 @@ describe('SignUpFormComponent', () => {
       component.formulario.get('password')?.setValue('test');
       component.formulario.get('confirmPassword')?.setValue('test');
 
-
-      ongsServiceSpy.createOng.and.returnValue(of(component.formModel));
-
+      tick(500);
       component.onSubmit();
 
       expect(routerSpy.navigate).toHaveBeenCalled();
-    });
 
-    it('should form.valid to be falsy', () => {
+      flush();
+    }));
+
+    it('should form.valid to be falsy', fakeAsync(() => {
       checkExistingServiceSpy.checkExistingData.and.returnValue(of([true]));
 
       component.formulario.get('user')?.setValue('OngBrasil');
@@ -83,9 +86,20 @@ describe('SignUpFormComponent', () => {
       component.formulario.get('password')?.setValue('test');
       component.formulario.get('confirmPassword')?.setValue('test');
 
+      tick(500);
       component.onSubmit();
 
       expect(component.formulario.valid).toBeFalsy();
+
+      flush();
+    }));
+
+    describe('the navigate method', () => {
+      it('should router navigate to have been called with public/dashboard', () => {
+        component.navigate();
+
+        expect(routerSpy.navigate).toHaveBeenCalledWith(['/public/dashboard']);
+      })
     })
   });
 

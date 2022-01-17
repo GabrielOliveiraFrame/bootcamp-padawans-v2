@@ -67,5 +67,12 @@ describe('CreateEventFormComponent', () => {
 
       expect(component.success).toBeTruthy();
     })
-  })
+  });
+
+  describe('the navigate method', () => {
+    it('shold navigate to have been called', () => {
+      component.navigate();
+      expect(routerSpy.navigate).toHaveBeenCalledWith(['public/dashboard']);
+    })
+  });
 });
