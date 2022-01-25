@@ -4,7 +4,7 @@ import { OngsService } from 'src/app/shared/services/ongs.service';
 
 import { SignOngsCardsComponent } from './sign-ongs-cards.component';
 
-describe('SignOngsCardsComponent', () => {
+describe(SignOngsCardsComponent.name, () => {
   let component: SignOngsCardsComponent;
   let fixture: ComponentFixture<SignOngsCardsComponent>;
 
@@ -34,7 +34,7 @@ describe('SignOngsCardsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('the getOngs method', () => {
+  describe(`the #${SignOngsCardsComponent.prototype.getOngs.name} method`, () => {
     it('should ongsList receive all the ongs', () => {
       const expectedOngs = [
         {user: 'OngBrasil', cnpj: '12312312312312'},

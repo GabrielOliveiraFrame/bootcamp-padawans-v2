@@ -8,7 +8,7 @@ import { NumbersUtilService } from 'src/app/shared/util/numbers-util.service';
 
 import { SignUpFormComponent } from './sign-up-form.component';
 
-describe('SignUpFormComponent', () => {
+describe(SignUpFormComponent.name, () => {
   let component: SignUpFormComponent;
   let fixture: ComponentFixture<SignUpFormComponent>;
 
@@ -53,7 +53,7 @@ describe('SignUpFormComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('the onSubmit method', () => {
+  describe(`the #${SignUpFormComponent.prototype.onSubmit.name} method`, () => {
     it('should call the navigate method', fakeAsync(() => {
       checkExistingServiceSpy.checkExistingData.and.returnValue(of([]));
 
@@ -94,7 +94,7 @@ describe('SignUpFormComponent', () => {
       flush();
     }));
 
-    describe('the navigate method', () => {
+    describe(`the #${SignUpFormComponent.prototype.navigate.name} method`, () => {
       it('should router navigate to have been called with public/dashboard', () => {
         component.navigate();
 

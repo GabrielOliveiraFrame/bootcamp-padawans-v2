@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SignOngsContainerComponent } from './sign-ongs-container.component';
 
-describe('SignOngsContainerComponent', () => {
+describe(SignOngsContainerComponent.name, () => {
   let component: SignOngsContainerComponent;
   let fixture: ComponentFixture<SignOngsContainerComponent>;
 

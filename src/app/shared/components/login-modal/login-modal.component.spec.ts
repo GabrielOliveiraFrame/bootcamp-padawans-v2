@@ -7,7 +7,7 @@ import { LoginModalComponent } from './login-modal.component';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
 
-describe('LoginModalComponent', () => {
+describe(LoginModalComponent.name, () => {
   let component: LoginModalComponent;
   let fixture: ComponentFixture<LoginModalComponent>;
 
@@ -48,7 +48,7 @@ describe('LoginModalComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('the onSubmit method', () => {
+  describe(`the #${LoginModalComponent.prototype.onSubmit.name} method`, () => {
     it('should rejectedLogin stay false', () => {
       component.formulario.get('user')?.setValue('OngBrasil');
       component.formulario.get('password')?.setValue('brasil123');

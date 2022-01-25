@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 
 import { LoggedComponent } from './logged.component';
 
-describe('LoggedComponent', () => {
+describe(LoggedComponent.name, () => {
   let component: LoggedComponent;
   let fixture: ComponentFixture<LoggedComponent>;
 
@@ -43,7 +43,7 @@ describe('LoggedComponent', () => {
     expect(component.success).toBeTruthy();
   })
 
-  describe('the closeLog method', () => {
+  describe(`the #${LoggedComponent.prototype.closeLog.name} method`, () => {
     it('should ongName to be undefined', () => {
       component.closeLog();
       expect(localStorage.getItem('userName')).toBeNull();

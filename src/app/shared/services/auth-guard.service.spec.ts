@@ -3,7 +3,7 @@ import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/ro
 
 import { AuthGuardService } from './auth-guard.service';
 
-describe('AuthGuardService', () => {
+describe(AuthGuardService.name, () => {
   let service: AuthGuardService;
 
   let routerSpy: jasmine.SpyObj<Router>;

@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 
 import { RedirectCreateEventsComponent } from './redirect-create-events.component';
 
-describe('RedirectCreateEventsComponent', () => {
+describe(RedirectCreateEventsComponent.name, () => {
   let component: RedirectCreateEventsComponent;
   let fixture: ComponentFixture<RedirectCreateEventsComponent>;
 
@@ -49,7 +49,7 @@ describe('RedirectCreateEventsComponent', () => {
     })
   });
 
-  describe('the navigate method', () => {
+  describe(`the #${RedirectCreateEventsComponent.prototype.navigate.name} method`, () => {
     it('shold navigate to have been called', () => {
       component.navigate();
       expect(routerSpy.navigate).toHaveBeenCalledWith(['/private/create-event']);

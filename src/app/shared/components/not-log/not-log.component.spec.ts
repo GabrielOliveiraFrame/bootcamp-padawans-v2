@@ -5,7 +5,7 @@ import { OngsService } from '../../services/ongs.service';
 
 import { NotLogComponent } from './not-log.component';
 
-describe('NotLogComponent', () => {
+describe(NotLogComponent.name, () => {
   let component: NotLogComponent;
   let fixture: ComponentFixture<NotLogComponent>;
 
@@ -45,7 +45,7 @@ describe('NotLogComponent', () => {
     expect(component.signUpSuccess).toEqual(true);
   });
 
-  describe('the navigate method', () => {
+  describe(`the #${NotLogComponent.prototype.navigate.name} method`, () => {
     it('should router navigate to have been called with public/sign-up', () => {
       component.navigate();
 

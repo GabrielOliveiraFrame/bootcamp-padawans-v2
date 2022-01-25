@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CalendarGroupComponent } from './calendar-group.component';
 
-describe('CalendarGroupComponent', () => {
+describe(CalendarGroupComponent.name, () => {
   let component: CalendarGroupComponent;
   let fixture: ComponentFixture<CalendarGroupComponent>;
 

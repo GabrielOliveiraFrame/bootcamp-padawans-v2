@@ -7,7 +7,11 @@
           <form [formGroup] = "formulario">
             <div class="form-row">
               <div class="form-group col-md-6 row mx-0">
-                <label for="user" class="col-sm-4 col-form-label">Usuário</label>
+                <div class="col-sm-4 col-form-label text-sm-right">
+                  <label for="user">Usuário</label>
+                  <i class="fas fa-question-circle ml-1" data-toggle="tooltip" data-placement="top"
+                  title="Este campo será usado como nome da Ong e será requisitado no momento do login"></i>
+                </div>
                 <div class="col-sm-8">
                   <input type="text" class="form-control mb-2" id="user"
                   autocomplete="off" formControlName="user">
@@ -18,10 +22,10 @@
               </div>
 
               <div class="form-group col-md-6 row mx-0">
-                <label for="email" class="col-sm-4 col-form-label">Email</label>
+                <label for="email" class="col-sm-4 col-form-label text-sm-right">Email</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control mb-2" id="email"
-                  autocomplete="off" formControlName="email">
+                  autocomplete="off" formControlName="email" placeholder="email@email.com">
 
                   <app-error-msg label="Email" [control]="formulario.get('email')"></app-error-msg>
                 </div>
@@ -30,10 +34,10 @@
             </div>
             <div class="form-row">
               <div class="form-group col-md-6 row mx-0">
-                <label for="cnpj" class="col-sm-4 col-form-label">Cnpj</label>
+                <label for="cnpj" class="col-sm-4 col-form-label text-sm-right">Cnpj</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control mb-2" id="cnpj" cnpjMask [control]="formulario.get('cnpj')"
-                  autocomplete="off" formControlName="cnpj">
+                  autocomplete="off" formControlName="cnpj" placeholder="XX.XXX.XXX/0001-XX">
 
                   <app-error-msg label="Cnpj" [control]="formulario.get('cnpj')"></app-error-msg>
                 </div>
@@ -41,10 +45,11 @@
               </div>
 
               <div class="form-group col-md-6 row mx-0">
-                <label for="phone" class="col-sm-4 col-form-label">Telefone</label>
+                <label for="phone" class="col-sm-4 col-form-label text-sm-right">Telefone</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control mb-2" id="phone" phoneMask
-                  [control]="formulario.get('phone')" autocomplete="off" formControlName="phone">
+                  [control]="formulario.get('phone')" autocomplete="off" formControlName="phone"
+                  placeholder="(XX) X XXXX-XXXX">
 
                   <app-error-msg label="Telefone" [control]="formulario.get('phone')"></app-error-msg>
                 </div>
@@ -53,7 +58,8 @@
             </div>
             <div class="form-row">
               <div class="form-group col-12 row mx-0">
-                <label for="imageLink" class="col-md-2 col-sm-4 col-form-label">Link da Imagem</label>
+                <label for="imageLink" class="col-md-2 col-sm-4
+                col-form-label text-truncate text-sm-right">Link da Imagem</label>
                 <div class="col-md-10 col-sm-8">
                   <input type="text" class="form-control mb-2" id="imageLink"
                   autocomplete="off" formControlName="imageLink">
@@ -66,7 +72,8 @@
             </div>
             <div class="form-row">
               <div class="form-group col-12 row mx-0">
-                <label for="description" class="col-md-2 col-sm-4 col-form-label">Descrição</label>
+                <label for="description" class="col-md-2 col-sm-4
+                col-form-label text-sm-right">Descrição</label>
                 <div class="col-md-10 col-sm-8">
                   <textarea name="description" class="form-control mb-2" id="description"
                   autocomplete="off" formControlName="description"></textarea>
@@ -79,7 +86,7 @@
             </div>
             <div class="form-row">
               <div class="form-group col-md-6 row mx-0">
-                <label for="passwordSign" class="col-sm-4 col-form-label">Senha</label>
+                <label for="passwordSign" class="col-sm-4 col-form-label text-sm-right">Senha</label>
                 <div class="col-sm-8">
                   <input type="password" class="form-control mb-2" id="passwordSign"
                   autocomplete="off" formControlName="password">
@@ -90,7 +97,8 @@
               </div>
 
               <div class="form-group col-md-6 row mx-0">
-                <label for="passwordConfirm" class="col-sm-4 col-form-label">Confirme a Senha</label>
+                <label for="passwordConfirm" class="col-sm-4
+                col-form-label text-truncate text-sm-right">Confirme a Senha</label>
                 <div class="col-sm-8">
                   <input type="password" class="form-control mb-2" id="passwordConfirm"
                   autocomplete="off" formControlName="confirmPassword">

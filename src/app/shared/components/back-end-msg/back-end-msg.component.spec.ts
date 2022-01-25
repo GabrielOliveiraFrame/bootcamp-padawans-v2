@@ -3,7 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { BackEndMsgComponent } from './back-end-msg.component';
 
-describe('BackEndMsgComponent', () => {
+describe(BackEndMsgComponent.name, () => {
   let component: BackEndMsgComponent;
   let fixture: ComponentFixture<BackEndMsgComponent>;
 

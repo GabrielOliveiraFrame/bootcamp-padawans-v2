@@ -5,7 +5,7 @@ import { SignUpFormModel } from '../models/sign-up-form-model';
 
 import { OngsService } from './ongs.service';
 
-describe('OngsService', () => {
+describe(OngsService.name, () => {
   let service: OngsService;
   let httpClientSpy: jasmine.SpyObj<HttpClient>;
 
@@ -25,7 +25,7 @@ describe('OngsService', () => {
     expect(service).toBeTruthy();
   });
 
-  describe('the getAll method', () => {
+  describe(`the #${OngsService.prototype.getAll.name} method`, () => {
     it('should return all the ongs', () => {
       const expectedOngs = [
         {user: 'OngBrasil', cnpj: '12312312312312'},
@@ -41,7 +41,7 @@ describe('OngsService', () => {
     });
   });
 
-  describe('the createOng method', () => {
+  describe(`the #${OngsService.prototype.createOng.name} method`, () => {
     it('should create a ong', () => {
       const ong = new SignUpFormModel();
 
@@ -55,7 +55,7 @@ describe('OngsService', () => {
     });
   });
 
-  describe('the getByUser method', () => {
+  describe(`the #${OngsService.prototype.getByUser.name} method`, () => {
     it('should return the ong filtered by user', () => {
       const user = 'OngBrasil';
       const expectedOng = [{user: 'OngBrasil',  cnpj: '12312312312312'}];

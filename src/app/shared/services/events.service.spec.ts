@@ -5,7 +5,7 @@ import { EventFormModel } from '../models/event-form-model';
 
 import { EventsService } from './events.service';
 
-describe('EventsService', () => {
+describe(EventsService.name, () => {
   let service: EventsService;
   let httpClientSpy: jasmine.SpyObj<HttpClient>;
 
@@ -25,7 +25,7 @@ describe('EventsService', () => {
     expect(service).toBeTruthy();
   });
 
-  describe('the getAll method', () => {
+  describe(`the #${EventsService.prototype.getAll.name} method`, () => {
     it('should return all the events', () => {
       const expectedEvents = [
         {title: 'Ajuda Brasil', local: 'Parque Qualquer'},
@@ -41,7 +41,7 @@ describe('EventsService', () => {
     });
   });
 
-  describe('the createEvent method', () => {
+  describe(`the #${EventsService.prototype.createEvent.name} method`, () => {
     it('should create a event', () => {
       const event = new EventFormModel();
 

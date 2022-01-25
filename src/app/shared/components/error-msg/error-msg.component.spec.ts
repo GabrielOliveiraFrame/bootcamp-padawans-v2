@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ErrorMsgComponent } from './error-msg.component';
 
-describe('ErrorMsgComponent', () => {
+describe(ErrorMsgComponent.name, () => {
   let component: ErrorMsgComponent;
   let fixture: ComponentFixture<ErrorMsgComponent>;
 
@@ -25,7 +25,7 @@ describe('ErrorMsgComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('the errorMsg method', () => {
+  describe(`the #${ErrorMsgComponent.prototype.errorMessage} method`, () => {
     it('should return "Email é obrigatório(a)."', () => {
       component.label = 'Email';
 

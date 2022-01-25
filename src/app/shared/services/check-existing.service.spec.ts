@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 
 import { CheckExistingService } from './check-existing.service';
 
-describe('CheckExistingService', () => {
+describe(CheckExistingService.name, () => {
   let service: CheckExistingService;
   let httpClientSpy: jasmine.SpyObj<HttpClient>;
 
@@ -24,7 +24,7 @@ describe('CheckExistingService', () => {
     expect(service).toBeTruthy();
   });
 
-  describe('the checkExisting method', () => {
+  describe(`the #${CheckExistingService.prototype.checkExistingData.name} method`, () => {
     it('should return true, indicating that there is a registered ong', () => {
       const signOngs = [
         {user: 'OngBrasil', cnpj: '12312312312312'},

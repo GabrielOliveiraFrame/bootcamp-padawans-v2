@@ -7,3 +7,9 @@ textarea{
   height: 150px;
   resize: none;
 }
+
+i{
+  font-size: 10px;
+  position: relative;
+  bottom: 8px;
+}

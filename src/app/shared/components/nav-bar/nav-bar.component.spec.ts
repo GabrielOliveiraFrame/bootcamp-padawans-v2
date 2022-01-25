@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 
 import { NavBarComponent } from './nav-bar.component';
 
-describe('NavBarComponent', () => {
+describe(NavBarComponent.name, () => {
   let component: NavBarComponent;
   let fixture: ComponentFixture<NavBarComponent>;
 

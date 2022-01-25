@@ -5,7 +5,7 @@ import { EventsService } from 'src/app/shared/services/events.service';
 
 import { EventsCardComponent } from './events-card.component';
 
-describe('EventsCardComponent', () => {
+describe(EventsCardComponent.name, () => {
   let component: EventsCardComponent;
   let fixture: ComponentFixture<EventsCardComponent>;
 
@@ -49,7 +49,7 @@ describe('EventsCardComponent', () => {
     })
   });
 
-  describe('the openSelectedCard method', () => {
+  describe(`the #${EventsCardComponent.prototype.openSelectedCard.name} method`, () => {
     it('should cardId receive the id(parameter)', () => {
       const expectedId = 1;
 
@@ -58,7 +58,7 @@ describe('EventsCardComponent', () => {
     });
   });
 
-  describe('the closeSelectedCard method', () => {
+  describe(`the #${EventsCardComponent.prototype.closeSelectedCard.name} method`, () => {
     it('should cardId receive null', () => {
       component.closeSelectedCard();
       expect(component.cardId).toBeNull();

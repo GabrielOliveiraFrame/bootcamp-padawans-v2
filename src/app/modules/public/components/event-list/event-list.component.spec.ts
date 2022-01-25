@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EventListComponent } from './event-list.component';
 
-describe('EventListComponent', () => {
+describe(EventListComponent.name, () => {
   let component: EventListComponent;
   let fixture: ComponentFixture<EventListComponent>;
 

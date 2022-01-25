@@ -8,7 +8,7 @@ import { NumbersUtilService } from 'src/app/shared/util/numbers-util.service';
 
 import { CreateEventFormComponent } from './create-event-form.component';
 
-describe('CreateEventFormComponent', () => {
+describe(CreateEventFormComponent.name, () => {
   let component: CreateEventFormComponent;
   let fixture: ComponentFixture<CreateEventFormComponent>;
 
@@ -53,7 +53,7 @@ describe('CreateEventFormComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('the onSubmit method', () => {
+  describe(`the #${CreateEventFormComponent.prototype.onSubmit.name} method`, () => {
     it('should component.sucess == true', () => {
       component.formulario.get('title')?.setValue('test');
       component.formulario.get('local')?.setValue('test');
@@ -69,7 +69,7 @@ describe('CreateEventFormComponent', () => {
     })
   });
 
-  describe('the navigate method', () => {
+  describe(`the #${CreateEventFormComponent.prototype.navigate.name} method`, () => {
     it('shold navigate to have been called', () => {
       component.navigate();
       expect(routerSpy.navigate).toHaveBeenCalledWith(['public/dashboard']);
